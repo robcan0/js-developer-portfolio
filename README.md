@@ -1,10 +1,14 @@
-# 🚀 JS Developer Portfolio — Roberto Cano
+# 🚀 Portfólio Web Interativo com HTML, CSS, JS e JSON
 
 Portfólio dinâmico desenvolvido com JavaScript moderno (ES6+) e CSS modular.  
 Todo o conteúdo é carregado a partir de um arquivo JSON (`data/profile.json`) e injetado no HTML via manipulação de DOM.  
-O projeto inclui um componente de acordeão acessível, com suporte a teclado e atributos ARIA para melhorar a navegação.  
+O projeto inclui um componente de acordeão acessível, com suporte a teclado e atributos ARIA para melhorar a navegação.
 
----
+## 📸 Visualização do Projeto
+
+| 💻 Versão Desktop | 📱 Versão Mobile |
+| :---: | :---: |
+| [![Desktop Preview](assets/img/Portfolio_Screenshot.png)](https://robcan0.github.io/js-developer-portfolio/) | [![Mobile Preview](assets/img/Portfolio_Screenshot_Responsive.png)](https://robcan0.github.io/js-developer-portfolio/) |
 
 ## 🛠️ Tecnologias
 
@@ -91,4 +95,6 @@ A renderização usa IDs fixos no HTML (ex.: `profile-name`, `profile-languages`
 
 ## 🙌 Créditos
 
-Este projeto tem como base o conteúdo criado pelo **instrutor Renan** na plataforma **Digital Innovation One (DIO)**, expandido e personalizado por mim.
+Este projeto tem como base o conteúdo criado pelo instrutor **Renan Johannsen** na plataforma **Digital Innovation One (DIO)**, expandido e personalizado por mim.
+
+🔗 **Veja o projeto rodando aqui:** [https://robcan0.github.io/js-developer-portfolio/](https://robcan0.github.io/js-developer-portfolio/)
