@@ -1,67 +1,115 @@
+/* Aplica box-sizing: border-box a todos os elementos
+   Isso faz com que padding e border sejam incluídos no cálculo da largura/altura */
 * {
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
 }
 
+/* Importa a fonte personalizada Neue Machina */
 @font-face {
-    font-family: 'Neue Machina';
-    src: url('../fonts/neue-machina-regular.otf');
+    font-family: 'Neue Machina'; /* Nome da fonte */
+    src: url('../fonts/neue-machina-regular.otf') format('opentype'); /* Caminho e formato da fonte */
+    font-weight: 400; /* Peso da fonte normal */
+    font-style: normal; /* Estilo normal */
 }
 
+/* Estilo geral do corpo da página */
 body {
-    background-color: #000;
-    color: #fff;
+    font-family: 'Neue Machina', 'Open Sans', Arial, Helvetica, sans-serif; /* Fontes de fallback */
+    background-color: #000; /* Fundo preto */
+    color: #fff; /* Texto branco */
+    overflow-x: hidden; /* Bloqueia a rolagem horizontal para evitar vazamentos de layout */
+    line-height: 1.6; /* Altura da linha para melhor legibilidade */
+    min-width: 260px; /* Define largura mínima para evitar quebra do layout em telas muito estreitas */
 }
 
+/* Estilo padrão para links */
 a {
-    color: #fff;
-    text-decoration: none;
+    color: #fff; /* Links brancos */
+    text-decoration: none; /* Remove sublinhado */
+    transition: all 0.3s ease-in-out; /* Transição suave em hover/focus */
 }
 
-a:hover {
-    text-decoration: underline;
+/* Estilo para links quando em hover ou foco */
+a:hover,
+a:focus {
+    color: #ff66D9; /* Cor rosa ao passar o mouse ou focar */
+    outline: 2px solid #ff66D9; /* Contorno rosa para acessibilidade */
+    outline-offset: 4px; /* Distância entre o contorno e o link */
+    text-decoration: underline; /* Sublinhado ao passar o mouse */
+    border-radius: .5rem; /* Bordas arredondadas no contorno */
 }
 
+/* Container principal da página */
 .main {
-    margin: 1rem;
-    padding: 1rem;
-    border: 1px solid #fff;
-    border-radius: 1rem;
+    margin: 1rem; /* Espaçamento externo */
+    padding: 1rem; /* Espaçamento interno */
+    border: 1px solid #fff; /* Borda branca */
+    border-radius: 1rem; /* Bordas arredondadas */
 }
 
+/* Elementos decorativos de fundo aplicados ao container principal */
 .main::before,
 .main::after {
-    content: '';
-    background-image: url('../img/background.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: inline-block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 140vw;
-    height: 100vh;
-    z-index: -1;
+    content: ''; /* Cria pseudo-elementos vazios */
+    background-image: url('../img/background.svg'); /* Imagem de fundo */
+    background-repeat: no-repeat; /* Não repetir imagem */
+    background-size: contain; /* Ajusta imagem ao tamanho definido */
+    position: fixed; /* Fixa no viewport */
+    top: 0; /* Posição no topo */
+    left: 0; /* Posição à esquerda */
+    width: 100vw; /* Ocupa toda a largura disponível do container pai */
+    height: 100vh; /* Altura igual à viewport */
+    z-index: -1; /* Fica atrás do conteúdo */
 }
 
+/* Ajusta o pseudo-elemento ::after para aparecer no canto inferior direito */
 .main::after {
-    content: '';
-    top: auto;
-    left: auto;
-    bottom: 0;
-    right: 0;
-    transform: rotate(180deg);
+    top: auto; /* Remove alinhamento superior */
+    left: auto; /* Remove alinhamento à esquerda */
+    bottom: 0; /* Alinha ao fundo */
+    right: 0; /* Alinha à direita */
+    transform: rotate(180deg); /* Rotaciona a imagem */
 }
 
-
+/* Responsividade para telas médias (>= 768px) */
 @media only screen and (min-width: 768px) {
     .main {
-        max-width: 1024px;
-        margin: 1rem auto;
+        max-width: 1024px; /* Limita largura máxima */
+        margin: 1rem auto; /* Centraliza horizontalmente */
     }
 
     .main::before,
     .main::after {
-        width: 70vw;
+        width: 70vw; /* Reduz largura dos elementos decorativos */
+    }
+}
+
+/* Responsividade para telas grandes (>= 1200px) */
+@media only screen and (min-width: 1200px) {
+    .main {
+        max-width: 1200px; /* Aumenta largura máxima */
+    }
+
+    .main::before,
+    .main::after {
+        width: 60vw; /* Reduz ainda mais largura dos elementos decorativos */
+    }
+}
+
+/* Estilo para mensagens de erro */
+.load-error {
+    background: white; /* Fundo branco */
+    color: red; /* Texto vermelho */
+    font-size: x-large; /* Fonte grande */
+    font-weight: 600; /* Texto em negrito */
+    padding: .75rem 1rem; /* Espaçamento interno */
+    border-radius: .5rem; /* Bordas arredondadas */
+    margin-bottom: 1rem; /* Espaço abaixo da mensagem */
+}
+
+/* Acessibilidade: remove transições se o usuário preferir menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    a {
+        transition: none; /* Remove transições em links */
     }
 }

@@ -1,37 +1,58 @@
+/* Lista de projetos do portfólio */
 .portfolio {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  display: flex; /* Usa flexbox para organizar os itens */
+  flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
+  justify-content: flex-start; /* Alinha os itens ao início do container */
+  width: 100%; /* Ocupa toda a largura disponível */
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove espaçamento interno padrão */
+  list-style: none; /* Remove os marcadores padrão da lista */
 }
 
+/* Cada item da lista de portfólio */
 .portfolio li {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 1rem 0;
+  display: flex; /* Layout flexível */
+  flex-direction: column; /* Organiza o conteúdo em coluna */
+  margin: 1rem 0; /* Espaçamento vertical entre os itens */
 }
 
+/* Título de cada projeto */
 .portfolio li h3 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin: 0;
-    margin-bottom: .5rem;
+  display: flex; /* Layout flexível */
+  flex-direction: row; /* Organiza ícone e texto em linha */
+  align-items: center; /* Centraliza verticalmente */
+  font-size: 1.25rem; /* Tamanho da fonte */
+  font-weight: 700; /* Texto em negrito */
+  margin: 0; /* Remove margens padrão */
+  margin-bottom: .5rem; /* Espaço abaixo do título */
 }
 
+/* Ícone do GitHub antes do título do projeto */
 .portfolio li h3.github::before {
-    content: "";
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url('../img/icons/github.svg');
-    margin-right: .5rem;
+  content: ""; /* Cria pseudo-elemento vazio */
+  display: inline-block; /* Exibe como bloco inline */
+  width: 1rem; /* Largura do ícone */
+  height: 1rem; /* Altura do ícone */
+  background-repeat: no-repeat; /* Não repetir imagem */
+  background-size: contain; /* Ajusta imagem ao tamanho definido */
+  background-image: url('../img/icons/github.svg'); /* Ícone do GitHub */
+  margin-right: .5rem; /* Espaço entre ícone e texto */
+}
+
+/* Responsividade para telas médias (>= 768px) */
+@media only screen and (min-width: 768px) {
+  .portfolio {
+    display: grid; /* Usa grid layout */
+    grid-template-columns: 1fr 1fr; /* Divide em duas colunas iguais */
+    gap: 2rem; /* Espaçamento entre os itens */
+  }
+
+  .portfolio li {
+    border-right: 1px solid #BF5AF2; /* Linha divisória à direita */
+    padding-bottom: 1rem; /* Espaço interno abaixo do item */
+  }
+
+  .portfolio li:nth-child(2n) {
+    border-right: none; /* Remove a borda dos itens pares (últimos da linha) */
+  }
 }

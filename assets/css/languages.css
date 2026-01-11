@@ -1,28 +1,41 @@
+/* Lista de idiomas */
 .languages {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    display: flex; /* Usa flexbox para organizar os itens */
+    flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    margin: 0; /* Remove margens padrão da lista */
+    padding: 0; /* Remove espaçamento interno padrão */
+    list-style: none; /* Remove os marcadores padrão da lista */
 }
 
+/* Cada item da lista de idiomas */
 .languages li {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-right: 1rem;
-    font-weight: 700;
+    display: flex; /* Layout flexível para alinhar ícone e texto */
+    align-items: center; /* Centraliza verticalmente ícone e texto */
+    padding: 0.5rem 0; /* Espaçamento vertical entre os itens */
+    font-weight: 700; /* Texto em negrito para destacar */
 }
 
+/* Ícone antes de cada idioma */
 .languages li::before {
-    content: "";
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url('../img/icons/check.svg');
-    margin-right: .5rem;
+    content: ""; /* Cria pseudo-elemento vazio */
+    display: inline-block; /* Exibe como bloco inline */
+    width: 1rem; /* Largura do ícone */
+    height: 1rem; /* Altura do ícone */
+    background-repeat: no-repeat; /* Não repetir imagem */
+    background-size: contain; /* Ajusta ao tamanho definido */
+    background-image: url('../img/icons/check.svg'); /* Ícone de "check" */
+    margin-right: .5rem; /* Espaço entre ícone e texto */
+}
+
+/* Responsividade: em telas médias (>= 723px) */
+@media only screen and (min-width: 723px) {
+    .languages {
+        flex-direction: row; /* Organiza os itens em linha */
+        flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    }
+
+    .languages li {
+        padding-right: 1rem; /* Espaço à direita entre os itens */
+    }
 }

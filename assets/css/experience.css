@@ -1,28 +1,55 @@
+/* Lista de experiências profissionais */
 .experience {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    display: flex; /* Usa flexbox para organizar os itens */
+    flex-direction: column; /* Organiza os itens em coluna */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove espaçamento interno padrão */
+    list-style: none; /* Remove os marcadores da lista */
 }
 
+/* Cada item da lista de experiência */
 .experience li {
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* Espaçamento entre os itens */
 }
 
+/* Período de cada experiência (ex: datas) */
 .experience li .period {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: flex; /* Layout flexível para alinhar elementos */
+    align-items: center; /* Centraliza verticalmente os elementos */
 }
 
+/* Ícone de calendário antes do período */
 .experience li .period::before {
-    content: "";
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url('../img/icons/calendar.svg');
-    margin-right: .5rem;
+    content: ""; /* Cria um pseudo-elemento vazio */
+    display: inline-block; /* Exibe como bloco inline */
+    width: 1rem; /* Largura do ícone */
+    height: 1rem; /* Altura do ícone */
+    background-repeat: no-repeat; /* Não repetir imagem */
+    background-size: contain; /* Ajusta imagem ao tamanho definido */
+    background-image: url('../img/icons/calendar.svg'); /* Ícone de calendário */
+    margin-right: .5rem; /* Espaço entre ícone e texto */
+}
+
+/* Estilos aplicados apenas em telas maiores (>= 768px) */
+@media only screen and (min-width: 768px) {
+    .experience {
+        border-left: 2px solid #BF5AF2; /* Linha vertical à esquerda */
+        padding-left: 1rem; /* Espaçamento interno à esquerda */
+    }
+
+    .experience li {
+        position: relative; /* Permite posicionar elementos filhos de forma absoluta */
+    }
+
+    /* Marcador circular antes de cada item da lista */
+    .experience li::before {
+        content: ""; /* Cria pseudo-elemento vazio */
+        position: absolute; /* Posiciona em relação ao item da lista */
+        left: -1.5rem; /* Move marcador para a esquerda */
+        top: 1.4rem; /* Ajusta posição vertical */
+        width: .85rem; /* Largura do círculo */
+        height: .85rem; /* Altura do círculo */
+        background: #BF5AF2; /* Cor de fundo roxa */
+        border-radius: 50%; /* Deixa o marcador circular */
+    }
 }

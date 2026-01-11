@@ -1,43 +1,61 @@
+/* Container principal da seção de habilidades */
 .skills {
-    display: flex;
-    flex-direction: column;
+  display: flex; /* Usa flexbox para organizar os elementos */
+  flex-direction: column; /* Organiza os itens em coluna */
 }
 
-.skills .tools ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+/* Lista de habilidades pessoais (soft skills) */
+.skills .personal>ul {
+  display: flex; /* Usa flexbox */
+  flex-direction: row; /* Organiza os itens em linha */
+  justify-content: flex-start; /* Alinha os itens ao início */
+  align-items: center; /* Centraliza verticalmente */
+  flex-wrap: wrap; /* Permite quebra de linha quando necessário */
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove espaçamento interno padrão */
 }
 
-.skills .tools ul li img {
-    max-width: 50px;
-    max-height: 50px;
-    margin: 0 .5rem;
+/* Cada item da lista de habilidades pessoais */
+.skills .personal>ul li {
+  margin-left: 2rem; /* Espaço à esquerda entre os itens */
+  padding: .5rem; /* Espaçamento interno */
 }
 
-.skills .personal ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
+/* Lista de ferramentas (hard skills) */
+.skills .tools>ul {
+  display: flex; /* Usa flexbox */
+  flex-direction: row; /* Organiza os itens em linha */
+  justify-content: flex-start; /* Alinha os itens ao início */
+  gap: 5px; /* Espaçamento entre os itens */
+  align-items: center; /* Centraliza verticalmente */
+  flex-wrap: wrap; /* Permite quebra de linha */
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove espaçamento interno padrão */
+  list-style: none; /* Remove marcadores da lista */
 }
 
-.skills .personal ul li {
-    margin-left: 2rem;
-    padding: .5rem
+/* Imagens dentro da lista de ferramentas */
+.skills .tools>ul li img {
+  max-width: 50px; /* Largura máxima da imagem */
+  max-height: 50px; /* Altura máxima da imagem */
+  margin: 0 .5rem; /* Espaço horizontal entre imagens */
 }
 
+/* Responsividade: em telas médias (>= 768px) */
 @media only screen and (min-width: 768px) {
-    .skills {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
+  .skills {
+    display: grid; /* Usa grid layout */
+    grid-template-columns: 1fr 1fr; /* Divide em duas colunas iguais */
+  }
 }
+
+/* Regra específica para telas de 502px ou menores */
+@media (max-width: 585px) {
+    /* Altera o container da lista para coluna vertical */
+    .skills .personal > ul {
+        flex-direction: column; /* Faz os itens ficarem um embaixo do outro */
+        align-items: flex-start; /* Alinha os itens à esquerda */
+    }
+    }
+
+    

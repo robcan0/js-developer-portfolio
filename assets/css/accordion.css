@@ -1,0 +1,77 @@
+/* Estilo base do acordeão */
+.accordion {
+    display: flex; /* Define layout flexível */
+    flex-direction: column; /* Organiza os elementos em coluna */
+    width: 100%; /* Ocupa toda a largura disponível */
+    margin: 1rem 0; /* Espaçamento vertical entre acordeões */
+    border: 1px solid #fff; /* Borda branca */
+    border-radius: 1rem; /* Bordas arredondadas */
+    transition: .25s; /* Transição suave para mudanças visuais */
+}
+
+/* Quando o acordeão está aberto ou em hover */
+.accordion.open,
+.accordion:hover {
+    background-color: #5e115c; /* Fundo roxo escuro */
+    border-color: #BF5AF2; /* Borda roxa clara */
+}
+
+/* Botão que dispara o acordeão */
+.accordion .trigger {
+    display: flex; /* Layout flexível */
+    flex-direction: row; /* Elementos alinhados em linha */
+    justify-content: space-between; /* Espaço entre título e ícone */
+    align-items: center; /* Alinha verticalmente ao centro */
+    font-size: 1.5rem; /* Tamanho da fonte */
+    font-weight: 700; /* Texto em negrito */
+    padding: 1rem 2rem; /* Espaçamento interno */
+    background-color: transparent; /* Fundo transparente */
+    color: #fff; /* Texto branco */
+    border: none; /* Remove borda padrão do botão */
+}
+
+/* Título dentro do botão trigger */
+.accordion .trigger h2 {
+    margin: 0; /* Remove margens padrão */
+    font-size: 1.5rem; /* Tamanho da fonte */
+    text-align: start; /* Alinha texto à esquerda */
+}
+
+/* Cursor muda para "mãozinha" ao passar sobre o botão */
+.accordion .trigger:hover {
+    cursor: pointer;
+}
+
+/* Ícone (seta) que aparece ao lado do botão */
+.accordion .trigger::after {
+    content: ''; /* Cria elemento vazio para ícone */
+    display: inline-block; /* Exibe como bloco inline */
+    width: 1.5rem; /* Largura da seta */
+    height: 1.5rem; /* Altura da seta */
+    background-repeat: no-repeat; /* Não repetir imagem */
+    background-size: contain; /* Ajusta imagem ao tamanho definido */
+    background-image: url('../img/icons/arrow-top.svg'); /* Ícone da seta */
+    transition: .25s; /* Transição suave ao girar */
+}
+
+/* Quando o acordeão está aberto, gira a seta */
+.accordion.open .trigger::after {
+    transform: rotate(180deg); /* Rotaciona seta para baixo */
+}
+
+/* Conteúdo interno do acordeão (inicialmente escondido) */
+.accordion .content {
+    overflow: hidden; /* Esconde conteúdo que ultrapassa altura */
+    height: 0; /* Altura inicial zero */
+    opacity: 0; /* Invisível */
+    visibility: hidden; /* Não visível */
+    transition: opacity .25s ease-in-out, visibility .25s; /* Transição suave */
+}
+
+/* Quando o acordeão está aberto, mostra o conteúdo */
+.accordion.open .content {
+    padding: 0 1rem 1rem 2rem; /* Espaçamento interno */
+    height: auto; /* Altura ajustada ao conteúdo */
+    opacity: 1; /* Visível */
+    visibility: visible; /* Tornar visível */
+}

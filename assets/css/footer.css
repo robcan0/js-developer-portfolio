@@ -1,12 +1,14 @@
+/* Estilo para o rodapé da página */
 footer {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 1rem;
+    width: 100%; /* O rodapé ocupa toda a largura da tela */
+    display: flex; /* Usa flexbox para organizar os elementos */
+    justify-content: flex-end; /* Alinha o conteúdo à direita */
+    align-items: center; /* Centraliza verticalmente os elementos */
+    padding: 1rem; /* Espaçamento interno em todos os lados */
 }
 
+/* Estilo para a imagem dentro do rodapé */
 footer img {
-    max-width: 100px;
+    max-width: 100px; /* Define largura máxima de 100px para a imagem */
+    height: auto; /* Ajusta a altura proporcionalmente à largura */
 }

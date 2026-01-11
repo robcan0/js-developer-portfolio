@@ -1,96 +1,122 @@
+/* Estilo geral do cabeçalho */
 .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+    display: flex; /* Usa flexbox para organizar os elementos */
+    flex-direction: column; /* Organiza os elementos em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    position: relative; /* Permite posicionar elementos filhos de forma absoluta */
 }
 
+/* Ícone decorativo no canto superior direito do header */
 .header::after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 2rem;
-    height: 2rem;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url('../img/icons/header.svg');
+    content: ''; /* Cria pseudo-elemento vazio */
+    position: absolute; /* Posiciona em relação ao header */
+    top: 1rem; /* Distância do topo */
+    right: 1rem; /* Distância da direita */
+    width: 2rem; /* Largura do ícone */
+    height: 2rem; /* Altura do ícone */
+    background: url('../img/icons/header.svg') no-repeat center/contain; /* Ícone de fundo */
 }
 
+/* Foto de perfil */
 .header .photo {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    width: 200px; /* Largura fixa */
+    height: 200px; /* Altura fixa */
+    border-radius: 50%; /* Deixa a imagem circular */
 }
 
+/* Título principal (nome da pessoa) */
 .header .title {
-    font-family: 'Neue Machina';
-    text-align: center;
+    font-family: 'Neue Machina', 'Open Sans', Arial, Helvetica, sans-serif; /* Fontes de fallback */
+    text-align: center; /* Centraliza o texto */
+    font-size: 1.5rem; /* Define tamanho base do título */
+    line-height: 1.2; /* Espaçamento vertical entre linhas */
+    margin-top: 1rem; /* Espaço acima do título */
+    padding: 0 1rem; /* Espaçamento interno lateral */
+    max-width: 100%; /* Impede que ultrapasse a largura do container */
 }
 
+/* Bloco de informações adicionais (cargo, localização, contato) */
 .information {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Organiza em coluna */
+    align-items: flex-start; /* Alinha itens à esquerda */
+    width: 100%; /* Ocupa toda a largura disponível */
 }
 
+/* Cada parágrafo dentro das informações */
 .information p {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: .5rem;
-    font-size: 1.125rem;
+    display: flex; /* Layout flexível */
+    flex-direction: row; /* Organiza em linha */
+    align-items: center; /* Centraliza verticalmente */
+    margin: .5rem; /* Espaçamento entre os itens */
+    font-size: 1.125rem; /* Tamanho da fonte */
 }
 
+/* Ícones antes de cada informação (ex: email, telefone) */
 .information p::before {
-    content: '';
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin-right: .5rem;
+    content: ''; /* Cria pseudo-elemento vazio */
+    display: inline-block; /* Exibe como bloco inline */
+    width: 1rem; /* Largura do ícone */
+    height: 1rem; /* Altura do ícone */
+    background-repeat: no-repeat; /* Não repetir imagem */
+    background-size: contain; /* Ajusta ao tamanho definido */
+    margin-right: .5rem; /* Espaço entre ícone e texto */
 }
 
+/* Ícones específicos para cada tipo de informação */
 .information .job::before {
-    background-image: url('../img/icons/job.svg');
+    background-image: url('../img/icons/job.svg'); /* Ícone de profissão */
 }
 
 .information .location::before {
-    background-image: url('../img/icons/location.svg');
+    background-image: url('../img/icons/location.svg'); /* Ícone de localização */
 }
 
 .information .email::before {
-    background-image: url('../img/icons/email.svg');
+    background-image: url('../img/icons/email.svg'); /* Ícone de email */
 }
 
 .information .phone::before {
-    background-image: url('../img/icons/phone.svg');
+    background-image: url('../img/icons/phone.svg'); /* Ícone de telefone */
 }
 
+/* Layout adaptado para telas médias (>= 768px) */
 @media only screen and (min-width: 768px) {
     .header {
-        display: grid;
-        grid-template-areas:
+        display: grid; /* Usa grid layout */
+        grid-template-areas: /* Define áreas do grid */
             "photo title"
-            "photo information"
-        ;
+            "photo information";
     }
 
     .header .photo {
-        grid-area: photo;
-        margin: 0 auto;
+        grid-area: photo; /* Foto ocupa área "photo" */
+        margin: 0 auto; /* Centraliza horizontalmente */
     }
 
     .header .title {
-        grid-area: title;
-        text-align: start;
-        max-width: 210px;
+        grid-area: title; /* Título ocupa área "title" */
+        text-align: start; /* Alinha texto à esquerda */
+        max-width: 100%; /* Limita largura do título */
+        white-space: nowrap; /* Garante que não quebra linha no PC */
     }
 
     .header .information {
-        grid-area: information;
+        grid-area: information; /* Informações ocupam área "information" */
+    }
+}
+
+/* Em telas pequenas (<= 900px), remove o ícone decorativo */
+@media (max-width: 900px) {
+    .header::after {
+        display: none; /* Não exibe o ícone */
+    }
+}
+
+/* Em telas grandes (>= 1024px), aumenta o título */
+@media only screen and (min-width: 1024px) {
+    .header .title {
+        font-size: 2rem; /* Título maior */
+        white-space: nowrap; /* Impede quebra de linha */
     }
 }
